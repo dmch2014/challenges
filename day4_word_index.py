@@ -6,13 +6,13 @@
 # words1 = ["Hate", "remorse", "vengeance"]
 
 def word_index(list_of_things):
-    longest_word_index=0
-    longest_word= ''
-    for item in list_of_things:
-        if len(item) > len(longest_word):
-            print(item)
-            longest_word=item
-            longest_word_index=list_of_things.index(item)
-        else:
-            return 0
-    return print(longest_word_index)
+    longest_word_index= 0
+    longest_word= 0
+    for index, word in enumerate(list_of_things):
+        word_length=len(word)
+        if word_length > longest_word:
+            longest_word=word_length
+            longest_word_index=index
+        elif word_length == longest_word:
+            longest_word_index= 0
+    return longest_word_index
