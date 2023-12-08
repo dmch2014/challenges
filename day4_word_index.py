@@ -8,6 +8,7 @@
 def word_index(list_of_things):
     longest_word_index= 0
     longest_word= 0
+    #https://www.simplilearn.com/tutorials/python-tutorial/enumerate-in-python#:~:text=Enumerate%20is%20a%20built%2Din,iterating%20over%20the%20iterable%20object.
     for index, word in enumerate(list_of_things):
         word_length=len(word)
         if word_length > longest_word:
