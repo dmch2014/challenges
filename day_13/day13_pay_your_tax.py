@@ -1,0 +1,19 @@
+# Write a function called your_vat. The function takes no
+# parameter. The function asks the user to input the price of an
+# item and VAT (vat should be a percentage). The function should
+# return the price of the item plus VAT. If the price is 220 and,
+# VAT is 15% your code should return a vat inclusive price of 253.
+# Make sure that your code can handle ValueError. Ensure the
+# code runs until valid numbers are entered. (hint: Your code
+# should include a while loop).
+def pay_your_tax():
+    while True:
+        try:
+            item = float(input("Tell me your item price:"))
+            vat = float(input("% of VAT:"))
+            item_vat_price = item + (item * (vat/100))
+            print(item_vat_price)
+            break
+        except ValueError as ve:
+            print(f'You entered {item} or {vat}, are not numbers.')
+
