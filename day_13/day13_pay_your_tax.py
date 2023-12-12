@@ -6,6 +6,8 @@
 # Make sure that your code can handle ValueError. Ensure the
 # code runs until valid numbers are entered. (hint: Your code
 # should include a while loop).
+
+import emojis
 def pay_your_tax():
     while True:
         try:
@@ -16,4 +18,13 @@ def pay_your_tax():
             break
         except ValueError as ve:
             print(f'You entered {item} or {vat}, are not numbers.')
+
+
+def python_snakes(number):
+    for n in range(number):
+        print(emojis.encode(':snake:'))
+
+
+
+
 
