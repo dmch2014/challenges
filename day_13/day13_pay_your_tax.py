@@ -20,11 +20,17 @@ def pay_your_tax():
             print(f'You entered {item} or {vat}, are not numbers.')
 
 
+# Extra Challenge: Pyramid of Snakes
+# Write a function called Python_snakes that takes a number
+# as an argument and creates the following shape, using the
+# number’s range: (hint: Use the loops and emoji library. If you
+# pass 7 as argument, your code should print the following:
 def python_snakes(number):
     for n in range(number):
         #print(emojis.encode(':snake:') * n)
         row_spaces = ' '*(number-n-1)
         print(row_spaces + emojis.encode(':snake:')*(n+1))
+
 
 
 
