@@ -22,7 +22,9 @@ def pay_your_tax():
 
 def python_snakes(number):
     for n in range(number):
-        print(emojis.encode(':snake:'))
+        #print(emojis.encode(':snake:') * n)
+        row_spaces = ' '*(number-n-1)
+        print(row_spaces + emojis.encode(':snake:')*(n+1))
 
 
 
