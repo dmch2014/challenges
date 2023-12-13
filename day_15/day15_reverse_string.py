@@ -16,3 +16,16 @@ def same_in_reverse(word_string):
     else:
         print(False)
     print(reverse_string)
+
+def same_in_reverse_2(word_string):
+    # slicing the string in reverse fashion
+    reverse_string=''
+    for element in word_string[ : :-1]:
+        print(element, end =' ')
+        print('\n')
+        reverse_string+=element
+    if reverse_string==word_string:
+        print(True)
+    else:
+        print(False)
+    print(reverse_string)
