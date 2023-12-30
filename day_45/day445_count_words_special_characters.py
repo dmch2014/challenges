@@ -8,23 +8,21 @@
 # “Python has a string format operator %. This functions
 # analogously to printf format strings in C, e.g. "spam=%s
 # eggs=%d" % ("blah", 2) evaluates to "spam=blah eggs=2".
-import re
+
+# Inicialmente el problema esta no considera los caracteres numericos, se añade a posteriori
+
 import string
 
 def count_words_sc(cadena_de_palabras):
-    specials = "(#$%&'()*+,-./:;<=>?@\[\]^_`\{|\}~)"
     analysis_dicy= {}
     #remplazo los espacios y tengo el total de caracteres
     all_chars = cadena_de_palabras.replace(" ", "")
+    #tengo una lista de eelemenntos de la lista sean palabras o palabras + especial charracters
     items = cadena_de_palabras.split()
 
     list_of_total_schars =  [c for c in all_chars if c in string.punctuation]
-    print(list_of_total_schars)
-
-    # count_specials = 0
-    # for char in all_chars:
-    #     if char in specials:
-    #         count_specials += 1
+    list_of_digits = [c for c in all_chars if c.isdigit()]
+    print(list_of_digits)
 
     count_words = 0
     for item in items:
@@ -33,6 +31,7 @@ def count_words_sc(cadena_de_palabras):
             count_words += 1
 
     analysis_dicy["number_of_specials"]= len(list_of_total_schars)
+    analysis_dicy["number_of_digits"]= len(list_of_digits)
     analysis_dicy["number_of_words"]= count_words
     analysis_dicy["total_chars"]= len(all_chars)
 
