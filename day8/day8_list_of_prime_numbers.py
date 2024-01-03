@@ -8,7 +8,7 @@ def prime_numbers(number):
     for i in range(2,number):
         if is_prime(i):
             list_of_prime_numbers.append(i)
-    return print(list_of_prime_numbers)
+    return list_of_prime_numbers
 
 def is_prime(n):
     #If you’ve looped through the entire range of numbers from 2 all the way up to n – 1
