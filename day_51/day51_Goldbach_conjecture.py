@@ -19,6 +19,15 @@ def goldbach_conjecture(num):
     else:
         return "Number is not even"
 
+def goldbach_conjecture_2(even_number):
+    if even_number <= 2 or even_number % 2 != 0:
+        return "Goldbach Conjecture doesn't apply to this number."
+
+    for i in range(2, even_number // 2 + 1):
+        if is_prime(i) and is_prime(even_number - i):
+            return f"The two primes are: {i} and {even_number - i}"
+
+
 def prime_numbers(number):
     list_of_prime_numbers= []
     for i in range(2,number):
