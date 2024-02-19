@@ -11,6 +11,8 @@ if __name__ == "__main__":
     port_input= int(input("Enter the port you want to bind the server: "))
     # Get the IP address and port of the local socket
 
+    print("Hostname-->:%s" %(socket.gethostname))
+
     address_port = ("127.0.0.1", port_input)
     # leserve address and port
     listener_socket.bind(address_port)
@@ -37,28 +39,30 @@ if __name__ == "__main__":
 
                 # read up to 4096 bytes of data from the client socket
                 client_msg = client_socket.recv(4096)
-                print(f"Client said: {client_msg.decode('utf-8')}")
+
+                print("Client said:" + client_msg.decode())
+
 
                 # Send a response to the client, notice it is a byte string
                 # replacing the client_socket.sendall call from before
                 client_socket.sendall(
-                    bytes(f"""HTTP/1.1 200 OK\r\nContent-type: text/html\r\nSet-Cookie: ServerName=steveserver\r
-                    \r\n
-                    <!doctype html>
-                    <html>
-                        <head/>
-                        <body>
-                            <h1>Welcome to the server!</h1>
-                            <h2>Server address: {address_port[0]}:{address_port[1]}</h2>
-                            <h3>You're connected through address: {client_address[0]}:{client_address[1]}</h3>
+                    bytes("""HTTP/1.1 200 OK\r\nContent-type: text/html\r\nSet-Cookie: ServerName=steveserver\r\n\r\n<!doctype html>
+                        <html>
+                            <head/>
                             <body>
-                                <pre>{client_msg.decode("utf-8")}<pre>
+                                <h1>Welcome to the server!</h1>
+                                <h2>Server address: {}:{}</h2>
+                                <h3>You're connected through address: {}:{}</h3>
+                                <body>
+                                    <pre>{}</pre>
+                                </body>
                             </body>
-                        </body>
-                    </html>
-                    \r\n\r\n
-                    """, "utf-8")
+                        </html>\r\n\r\n
+                        """.format(address_port[0], address_port[1], client_address[0], client_address[1], client_msg.decode("utf-8")))
+
+                    #bytes("HTTP/1.1 200 OK")
                 )
+
                 try:
                     # close the connection
                     client_socket.close()
